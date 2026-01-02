@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify | Own Your Day</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div id="auth-overlay" class="overlay">
+        <div class="auth-card">
+            <h2 class="logo-text">Taskify<span>.</span></h2>
+            <p>Ready to lock in?</p>
+            <input type="email" id="email" placeholder="Email Address">
+            <input type="password" id="password" placeholder="Password">
+            <button class="main-btn" onclick="handleLogin()">Sign In</button>
+            <div class="auth-footer">New here? <span class="highlight">Join the waitlist</span></div>
+        </div>
+    </div>
+
+    <div class="app-layout" id="main-app" style="display: none;">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <h2 class="logo-text clickable-logo" id="admin-trigger">Taskify<span>.</span></h2>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <h4>FLOW</h4>
+                    <ul>
+                        <li class="active" onclick="showSection('daily')"><i data-lucide="zap"></i> Daily Grind</li>
+                        <li onclick="showSection('calendar')"><i data-lucide="calendar"></i> Calendar</li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h4>PROJECTS</h4>
+                    <ul id="project-list">
+                        <li><span class="dot blue"></span> Hustle</li>
+                        <li><span class="dot white"></span> Personal</li>
+                        <li><span class="dot grey"></span> Study</li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header class="main-header">
+                <div>
+                    <h1 id="section-title">Daily Grind</h1>
+                    <p id="today-date" class="text-dim"></p>
+                </div>
+                <div class="user-chip">Alex D.</div>
+            </header>
+
+            <div id="task-workspace">
+                <div class="input-container">
+                    <input type="text" id="mainTaskInput" placeholder="Enter a new task...">
+                    <button class="add-task-btn" onclick="addTask()">Add</button>
+                </div>
+                <div class="task-grid" id="taskGrid"></div>
+            </div>
+
+            <div id="calendar-workspace" class="calendar-container" style="display:none;">
+                <div id="calendar-grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <div id="admin-panel" class="admin-sidebar" style="display: none;">
+        <h3>GOD MODE</h3>
+        <p>User Count: 1,240</p>
+        <button onclick="alert('Maintenance mode toggled')">Toggle Maintenance</button>
+        <button onclick="alert('Backup created')">Force Backup</button>
+        <button class="danger" onclick="location.reload()">Exit Admin</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
